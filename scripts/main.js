@@ -50,7 +50,7 @@ const listPlantCategories = (categCollection) => {
   categCollection.forEach((elem) => {
     categListWrapperElem.innerHTML += `
       <li id="${elem.id}" 
-        class="categ hover:bg-[#CFF0DC] p-2 rounded cursor-pointer" 
+        class="categ hover:bg-[#CFF0DC] px-3 py-1 rounded cursor-pointer" 
         title="${elem.small_description}">${elem.category_name}</li>
     `;
   });
@@ -93,7 +93,7 @@ const popuAllPlantCards = (plantCollection) => {
                   </figure>
 
                   <h3 class="mb-2 font-semibold text-[#1F2937]">${elem.name}</h3>
-                  <p class="mb-3 text-[#1F2937] text-xs h-20">${elem.description}</p>
+                  <p class="mb-3 text-[#1F2937] text-xs line-clamp-3">${elem.description}</p>
 
                   <div class="flex justify-between items-center mb-3">
                     <h4 class="bg-[#DCFCE7] px-3 py-1 rounded-full font-semibold text-[#15803D] text-sm">${elem.category}</h4>
@@ -112,7 +112,6 @@ const popuAllPlantCards = (plantCollection) => {
 
 //SECTION - first functions
 fetchPlantCategories();
-// fetchAllPlantsData();
 fetchPlantsDataByCateg(0);
 moveCategSelectionById(0);
 //!SECTION first functions
