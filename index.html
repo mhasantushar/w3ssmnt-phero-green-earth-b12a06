@@ -26,6 +26,7 @@
 
   <body>
     <header>
+      <!-- NAV AREA -->
       <nav class="bg-[#15803D]">
         <div class="bg-[#15803D] shadow-sm mx-auto w-10/12 navbar">
           <div class="navbar-start">
@@ -57,16 +58,25 @@
         </div>
       </nav>
 
-      <section id="sect-hero" class="bg-[#CFF0DC]">
+      <!-- HERO AREA -->
+      <section class="bg-[#CFF0DC]">
         <div class="mx-auto w-11/12">
-          <img src="./assets/hero-leaf1.png" alt="Leaf">
-          <div>
-            <h1 class="mb-2 font-bold text-[#1F2937] text-5xl">Plant a Tree, Grow a Future </h1>
-            <p class="mb-6 text-[#1F2937]">Join our mission to plant 1 million trees and make the Earth greener for future
-              generations.</p>
+          <div class="sm:items-center sm:grid sm:grid-cols-12">
+            <figure class="hidden lg:block lg:col-span-3">
+              <img class="" src="./assets/hero-leaf1.png" alt="Leaf">
+            </figure>
+
+            <div class="sm:col-span-6 py-10 text-center">
+              <h1 class="mb-2 font-bold text-[#1F2937] text-5xl">Plant a Tree, Grow a Future </h1>
+              <p class="mb-6 text-[#1F2937]">
+                Join our mission to plant 1 million trees and make the Earth greener for future generations.</p>
               <a class="rounded-full font-medium text-[#15803D] btn btn-warning">Get Involved</a>
+            </div>
+
+            <figure class="block sm:col-span-6 lg:col-span-3">
+              <img src="./assets/hero-leaf2.png" alt="Leaf">
+            </figure>
           </div>
-          <img src="./assets/hero-leaf2.png" alt="Leaf">
         </div>
       </section>
     </header>
