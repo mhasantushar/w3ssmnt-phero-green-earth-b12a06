@@ -70,7 +70,7 @@ const populatePlantCards = (plantCollection) => {
                   </figure>
 
                   <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">${elem.name}</h3>
-                  <p class="mb-3 text-[#1F2937] text-xs">${elem.description}</p>
+                  <p class="mb-3 text-[#1F2937] text-xs h-20">${elem.description}</p>
 
                   <div class="flex justify-between items-center mb-3">
                     <h4 class="bg-[#DCFCE7] px-3 py-1 rounded-full font-semibold text-[#15803D] text-sm">${elem.category}</h4>
