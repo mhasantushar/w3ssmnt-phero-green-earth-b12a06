@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
-    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/round-logo.png" type="image/x-icon">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./styles/main.css">
@@ -41,18 +41,21 @@
                 </svg>
               </div>
               <ul tabindex="0" class="z-1 bg-base-100 shadow mt-3 p-2 rounded-box w-52 menu menu-sm dropdown-content">
-                <li><a>About</a></li>
-                <li><a>Gallery</a> </li>
-                <li><a>Plant a Tree</a></li>
+                <li><a href="#sect-about-campaign">About</a></li>
+                <li><a href="#sect-choose-trees">Gallery</a> </li>
+                <li><a href="#sect-plant-atree">Plant a Tree</a></li>
               </ul>
             </div>
-            <a class="font-semibold text-white text-2xl">Green Earth</a>
+            <div class="flex justify-items-start items-center gap-1">
+              <img src="./assets/round-logo.png" alt="The Logo">
+              <a class="font-semibold text-white text-2xl">Green Earth</a>
+            </div>
           </div>
           <div class="hidden lg:flex navbar-center">
             <ul class="px-1 font-medium text-white menu menu-horizontal">
-              <li><a>About</a></li>
-              <li><a>Gallery</a> </li>
-              <li><a>Plant a Tree</a></li>
+              <li><a href="#sect-about-campaign">About</a></li>
+              <li><a href="#sect-choose-trees">Gallery</a> </li>
+              <li><a href="#sect-plant-atree">Plant a Tree</a></li>
             </ul>
           </div>
           <div class="navbar-end">
@@ -73,7 +76,8 @@
               <h1 class="mb-2 font-bold text-[#1F2937] text-5xl">Plant a Tree, Grow a Future </h1>
               <p class="mb-6 text-[#1F2937]">
                 Join our mission to plant 1 million trees and make the Earth greener for future generations.</p>
-              <a class="rounded-full font-medium text-[#15803D] btn btn-warning">Get Involved</a>
+              <a class="rounded-full font-medium text-[#15803D] btn btn-warning" href="#sect-our-impact">Get
+                Involved</a>
             </div>
 
             <figure class="block sm:col-span-6 lg:col-span-3">
@@ -129,9 +133,9 @@
             <div class="xl:col-span-8 mt-10">
               <div id="tree-card-wrapper" class="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 
-                <article class="bg-white p-4 rounded-lg">
+                <!-- <article class="bg-white p-4 rounded-lg">
                   <figure class="bg-[#EDEDED] mb-3 rounded-lg">
-                    <img class="rounded-lg w-full h-48" src="./assets/hero-leaf1.png" alt="">
+                    <img class="rounded-lg w-full h-60" src="./assets/hero-leaf1.png" alt="">
                   </figure>
 
                   <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
@@ -144,41 +148,7 @@
                         class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
                   </div>
                   <button class="rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
-                </article>
-
-                <article class="bg-white p-4 rounded-lg">
-                  <figure class="bg-[#EDEDED] mb-3 rounded-lg">
-                    <img class="rounded-lg w-full h-48" src="./assets/hero-leaf1.png" alt="">
-                  </figure>
-
-                  <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
-                  <p class="mb-3 text-[#1F2937] text-xs">A fast-growing tropical tree that produces delicious, juicy
-                    mangoes during summer. Its dense green</p>
-
-                  <div class="flex justify-between items-center mb-3">
-                    <h4 class="bg-[#DCFCE7] px-3 py-1 rounded-full font-semibold text-[#15803D] text-sm">Fruit Tree</h4>
-                    <p class="font-semibold text-[#1F2937] text-sm"><i
-                        class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
-                  </div>
-                  <button class="rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
-                </article>
-
-                <article class="bg-white p-4 rounded-lg">
-                  <figure class="bg-[#EDEDED] mb-3 rounded-lg">
-                    <img class="rounded-lg w-full h-48" src="./assets/hero-leaf1.png" alt="">
-                  </figure>
-
-                  <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
-                  <p class="mb-3 text-[#1F2937] text-xs">A fast-growing tropical tree that produces delicious, juicy
-                    mangoes during summer. Its dense green</p>
-
-                  <div class="flex justify-between items-center mb-3">
-                    <h4 class="bg-[#DCFCE7] px-3 py-1 rounded-full font-semibold text-[#15803D] text-sm">Fruit Tree</h4>
-                    <p class="font-semibold text-[#1F2937] text-sm"><i
-                        class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
-                  </div>
-                  <button class="rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
-                </article>
+                </article> -->
 
               </div>
             </div>
@@ -313,6 +283,28 @@
         <p class="text-white text-center">© 2025 Green Earth. All Rights Reserved.</p>
       </section>
     </footer>
+
+
+
+
+    <!-- MODAL DIALOGBOX AREA SPECIAL -->
+    <!-- You can open the modal using ID.showModal() method -->
+    <button class="btn" onclick="modalPlantInfo.showModal()">open modal</button>
+    <dialog id="modalPlantInfo" class="modal">
+      <div class="w-11/12 max-w-5xl modal-box">
+        
+        <div id="tree-modal-wrapper">
+
+        </div>
+
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button, it will close the modal -->
+            <button class="btn btn-warning">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
 
     <script src="./scripts/main.js"></script>
   </body>

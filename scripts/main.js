@@ -1,6 +1,8 @@
 // console.log ("connected");
 const categListWrapperElem = document.getElementById("lov-categ-wrapper");
 const plantCardWrapperElem = document.getElementById("tree-card-wrapper");
+const plantModalWrapperElem = document.getElementById("tree-modal-wrapper");
+const plantModalDialogBox = document.getElementById("modalPlantInfo");
 
 //SECTION - common functions
 const unselectAllCategories = () => {
@@ -50,7 +52,7 @@ const listPlantCategories = (categCollection) => {
   categCollection.forEach((elem) => {
     categListWrapperElem.innerHTML += `
       <li id="${elem.id}" 
-        class="categ hover:bg-[#CFF0DC] px-3 py-1 rounded cursor-pointer" 
+        class="hook-categ hover:bg-[#CFF0DC] px-3 py-1 rounded cursor-pointer" 
         title="${elem.small_description}">${elem.category_name}</li>
     `;
   });
@@ -63,13 +65,12 @@ const fetchAllPlantsData = () => {
 
   fetch(url)
     .then((resp) => resp.json())
-    .then((data) => popuAllPlantCards(data.plants))
+    .then((data) => populatePlantCards(data.plants))
     .catch((err) => alert("Error:", err));
 };
 
 const fetchPlantsDataByCateg = (categId) => {
   showMainSpinner(true);
-
   const url =
     categId == 0
       ? "https://openapi.programming-hero.com/api/plants"
@@ -77,11 +78,11 @@ const fetchPlantsDataByCateg = (categId) => {
 
   fetch(url)
     .then((resp) => resp.json())
-    .then((data) => popuAllPlantCards(data.plants))
+    .then((data) => populatePlantCards(data.plants))
     .catch((err) => alert("Error:", err));
 };
 
-const popuAllPlantCards = (plantCollection) => {
+const populatePlantCards = (plantCollection) => {
   // console.log (plantCollection);
   // const plantCardWrapperElem = document.getElementById("tree-card-wrapper");
 
@@ -89,10 +90,10 @@ const popuAllPlantCards = (plantCollection) => {
     (elem) => `
                 <article id="${elem.id}" class="bg-white p-4 rounded-lg">
                   <figure class="bg-[#EDEDED] mb-3 rounded-lg">
-                    <img class="rounded-lg h-60 w-full" src="${elem.image}" alt="${elem.name}">
+                    <img class="hook-plant-img rounded-lg h-60 w-full cursor-pointer" src="${elem.image}" alt="${elem.name}">
                   </figure>
 
-                  <h3 class="mb-2 font-semibold text-[#1F2937]">${elem.name}</h3>
+                  <h3 class="hook-plant-name mb-2 font-semibold text-[#1F2937] cursor-pointer">${elem.name}</h3>
                   <p class="mb-3 text-[#1F2937] text-xs line-clamp-3">${elem.description}</p>
 
                   <div class="flex justify-between items-center mb-3">
@@ -100,13 +101,45 @@ const popuAllPlantCards = (plantCollection) => {
                     <p class="font-semibold text-[#1F2937] text-sm"><i
                         class="fa-solid fa-bangladeshi-taka-sign"></i><span>${elem.price}</span></p>
                   </div>
-                  <button class="rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
+                  <button class="hook-plant-tocart rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
                 </article>
     `
   );
   // console.log (htmlString);
   plantCardWrapperElem.innerHTML = htmlString.join(" ");
   showMainSpinner(false);
+};
+
+const fetchPlantDataById = (plantId) => {
+  showMainSpinner(true);
+  const url = "https://openapi.programming-hero.com/api/plant/" + plantId;
+
+  fetch(url)
+    .then((resp) => resp.json())
+    .then((data) => populatePlantModal(data.plants))
+    .catch((err) => alert("Error:", err));
+};
+
+const populatePlantModal = (plantObj) => {
+  plantModalWrapperElem.innerHTML = `
+                <article id="${plantObj.id}" class="bg-white p-4 rounded-lg">
+                  <figure class="bg-[#EDEDED] mb-3 rounded-lg">
+                    <img class="hook-plant-img rounded-lg h-60 w-full cursor-pointer" src="${plantObj.image}" alt="${plantObj.name}">
+                  </figure>
+
+                  <h3 class="hook-plant-name mb-2 font-semibold text-[#1F2937] cursor-pointer">${plantObj.name}</h3>
+                  <p class="mb-3 text-[#1F2937] text-xs line-clamp-3">${plantObj.description}</p>
+
+                  <div class="flex justify-between items-center mb-3">
+                    <h4 class="bg-[#DCFCE7] px-3 py-1 rounded-full font-semibold text-[#15803D] text-sm">${plantObj.category}</h4>
+                    <p class="font-semibold text-[#1F2937] text-sm"><i
+                        class="fa-solid fa-bangladeshi-taka-sign"></i><span>${plantObj.price}</span></p>
+                  </div>
+                  <button class="hook-plant-tocart rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
+                </article>
+  `;
+  showMainSpinner(false);
+  plantModalDialogBox.showModal();
 };
 //!SECTION populating api data
 
@@ -118,12 +151,18 @@ moveCategSelectionById(0);
 
 //SECTION - event listeners
 categListWrapperElem.addEventListener("click", (e) => {
-  // console.log (e);
-  // console.log(e,target);
-  console.log(e.target.id);
+  // console.log(e.target);
+  // console.log(e.target.id);
   if (e.target.localName === "li") {
-      moveCategSelectionByElem(e.target); // category selection bar
-      fetchPlantsDataByCateg(e.target.id);
+    moveCategSelectionByElem(e.target); // category selection bar
+    fetchPlantsDataByCateg(e.target.id);
   }
+});
+
+plantCardWrapperElem.addEventListener("click", (e) => {
+  // console.log(e.target);
+  if (e.target.classList.contains("hook-plant-name")) fetchPlantDataById(e.target.parentNode.id);   //click on plant's name
+  if (e.target.classList.contains("hook-plant-img")) fetchPlantDataById(e.target.parentNode.parentNode.id);   //click on plant's image
+  if (e.target.classList.contains("hook-plant-tocart")) console.log(e.target);    //click on plant's image
 });
 //!SECTION event listeners
