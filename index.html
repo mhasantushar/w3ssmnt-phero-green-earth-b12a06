@@ -285,21 +285,20 @@
     </footer>
 
 
-
-
     <!-- MODAL DIALOGBOX AREA SPECIAL -->
     <!-- You can open the modal using ID.showModal() method -->
-    <button class="btn" onclick="modalPlantInfo.showModal()">open modal</button>
+    <!-- <button class="btn" onclick="modalPlantInfo.showModal()">open modal</button> -->
     <dialog id="modalPlantInfo" class="modal">
-      <div class="w-11/12 max-w-5xl modal-box">
+      <div class="w-10/12 max-w-md modal-box">
         
         <div id="tree-modal-wrapper">
-
+          <!-- dynamic contents feed -->
         </div>
 
         <div class="modal-action">
           <form method="dialog">
             <!-- if there is a button, it will close the modal -->
+             <button class="btn btn-success hook-plant-tocart">Add to Cart</button>
             <button class="btn btn-warning">Close</button>
           </form>
         </div>

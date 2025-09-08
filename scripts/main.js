@@ -128,14 +128,13 @@ const populatePlantModal = (plantObj) => {
                   </figure>
 
                   <h3 class="hook-plant-name mb-2 font-semibold text-[#1F2937] cursor-pointer">${plantObj.name}</h3>
-                  <p class="mb-3 text-[#1F2937] text-xs line-clamp-3">${plantObj.description}</p>
+                  <p class="mb-3 text-[#1F2937] text-xs line-clamp-5">${plantObj.description}</p>
 
                   <div class="flex justify-between items-center mb-3">
                     <h4 class="bg-[#DCFCE7] px-3 py-1 rounded-full font-semibold text-[#15803D] text-sm">${plantObj.category}</h4>
                     <p class="font-semibold text-[#1F2937] text-sm"><i
                         class="fa-solid fa-bangladeshi-taka-sign"></i><span>${plantObj.price}</span></p>
                   </div>
-                  <button class="hook-plant-tocart rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
                 </article>
   `;
   showMainSpinner(false);
