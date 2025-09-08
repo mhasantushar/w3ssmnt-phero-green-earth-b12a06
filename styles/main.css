@@ -8,3 +8,8 @@
 * {
   font-family: "Inter", sans-serif;
 }
+
+.selected-categ {
+  background-color: #15803D;
+  color: #FFFFFF;
+}

@@ -7,6 +7,9 @@
     <title>Green Earth</title>
     <link rel="shortcut icon" href="./assets/about.png" type="image/x-icon">
 
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./styles/main.css">
+
     <!-- Goggle font: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,40 +82,59 @@
           </div>
         </div>
       </section>
+      <!-- <section class="bg-[#CFF0DC]">
+        <div class="mx-auto w-11/12">
+          <div class="grid grid-cols-12">
+            <div class="col-span-8 bg-[url(./assets/hero-leaf1.png)] bg-no-repeat bg-left-bottom">
+              <div class="py-24 text-center">
+                <h1 class="mb-2 font-bold text-[#1F2937] text-5xl">Plant a Tree, Grow a Future </h1>
+                <p class="mb-6 text-[#1F2937]">
+                  Join our mission to plant 1 million trees and make the Earth greener for future generations.</p>
+                <a class="rounded-full font-medium text-[#15803D] btn btn-warning">Get Involved</a>
+              </div>
+            </div>
+
+            <figure class="col-span-4">
+              <img src="./assets/hero-leaf2.png" alt="Leaf">
+            </figure>
+          </div>
+        </div>
+      </section> -->
     </header>
 
     <main>
       <!-- SPINNER -->
-      <section class="hidden flex justify-center bg-[#F0FDF4] pt-4">
-        <span class="loading loading-infinity loading-lg"></span>
+      <section id="main-spinner" class="hidden flex justify-center bg-[#F0FDF4] pt-4">
+        <span class="text-[#15803D] loading loading-infinity loading-xl"></span>
       </section>
 
       <!-- CHOOSE YOUR TREE SECTION -->
-      <section class="bg-[#F0FDF4] pt-20">
+      <section id="sect-choose-trees" class="bg-[#F0FDF4] pt-20">
         <div class="mx-auto w-10/12">
           <h2 class="font-semibold text-3xl text-center">Choose Your Trees</h2>
 
           <div class="xl:gap-4 xl:grid xl:grid-cols-12">
+
             <!-- Left Pane - Categories -->
             <aside class="xl:col-span-2 mt-10">
               <h3 class="mb-4 font-semibold text-xl">Categories</h3>
-              <div class="">
-                <ul class="gap-1 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-1 font-medium">
-                  <li class="bg-amber-100 hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ All</li>
-                  <li class="bg-amber-100 hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ 1</li>
-                  <li class="bg-amber-100 hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ 2</li>
-                  <li class="bg-amber-100 hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ 3</li>
-                </ul>
-              </div>
+
+              <ul id="lov-categ-wrapper" class="gap-1 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-1 font-medium">
+                <li id="categId-0" class="hover:bg-[#CFF0DC] p-2 rounded cursor-pointer"
+                  title="All trees together, regardless of categories.">All Trees</li>
+                <!-- <li class="hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ 1</li>
+                  <li class="hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ 2</li>
+                  <li class="hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ 3</li> -->
+              </ul>
             </aside>
 
             <!-- Middle Pane - Tree Gallery -->
             <div class="xl:col-span-8 mt-10">
-              <div class="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+              <div id="tree-card-wrapper" class="gap-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
 
                 <article class="bg-white p-4 rounded-lg">
                   <figure class="bg-[#EDEDED] mb-3 rounded-lg">
-                    <img class="h-48" src="./assets/hero-leaf1.png" alt="">
+                    <img class="rounded-lg w-full h-48" src="./assets/hero-leaf1.png" alt="">
                   </figure>
 
                   <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
@@ -129,7 +151,7 @@
 
                 <article class="bg-white p-4 rounded-lg">
                   <figure class="bg-[#EDEDED] mb-3 rounded-lg">
-                    <img class="h-48" src="./assets/hero-leaf1.png" alt="">
+                    <img class="rounded-lg w-full h-48" src="./assets/hero-leaf1.png" alt="">
                   </figure>
 
                   <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
@@ -146,7 +168,7 @@
 
                 <article class="bg-white p-4 rounded-lg">
                   <figure class="bg-[#EDEDED] mb-3 rounded-lg">
-                    <img class="h-48" src="./assets/hero-leaf1.png" alt="">
+                    <img class="rounded-lg w-full h-48" src="./assets/hero-leaf1.png" alt="">
                   </figure>
 
                   <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
@@ -160,6 +182,7 @@
                   </div>
                   <button class="rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
                 </article>
+
               </div>
             </div>
 
@@ -208,6 +231,8 @@
           </div>
         </div>
       </section>
+
+
 
     </main>
 
