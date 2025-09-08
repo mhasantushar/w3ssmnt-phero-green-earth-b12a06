@@ -26,7 +26,7 @@
 
   <body>
     <header>
-      <!-- NAV AREA -->
+      <!-- NAVIGATION SECTION -->
       <nav class="bg-[#15803D]">
         <div class="bg-[#15803D] shadow-sm mx-auto w-10/12 navbar">
           <div class="navbar-start">
@@ -58,7 +58,7 @@
         </div>
       </nav>
 
-      <!-- HERO AREA -->
+      <!-- HERO SECTION -->
       <section class="bg-[#CFF0DC]">
         <div class="mx-auto w-11/12">
           <div class="sm:items-center sm:grid sm:grid-cols-12">
@@ -81,8 +81,133 @@
       </section>
     </header>
 
-    <body>
-    </body>
+    <main>
+      <!-- SPINNER -->
+      <section class="hidden flex justify-center bg-[#F0FDF4] pt-4">
+        <span class="loading loading-infinity loading-lg"></span>
+      </section>
+
+      <!-- CHOOSE YOUR TREE SECTION -->
+      <section class="bg-[#F0FDF4] pt-20">
+        <div class="mx-auto w-10/12">
+          <h2 class="font-semibold text-3xl text-center">Choose Your Trees</h2>
+
+          <!-- Left Pane - Categories -->
+          <aside class="mt-10">
+            <h3 class="mb-4 font-semibold text-xl">Categories</h3>
+            <div>
+              <ul class="space-y-1 font-medium">
+                <li class="bg-amber-100 hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ All</li>
+                <li class="bg-amber-100 hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ 1</li>
+                <li class="bg-amber-100 hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ 2</li>
+                <li class="bg-amber-100 hover:bg-[#CFF0DC] p-2 rounded cursor-pointer">Categ 3</li>
+              </ul>
+            </div>
+          </aside>
+
+          <!-- Middle Pane - Tree Gallery -->
+          <div class="mt-10">
+            <div class="gap-6 grid grid-cols-3">
+
+              <article class="bg-white p-4 rounded-lg">
+                <figure class="bg-[#EDEDED] mb-3 rounded-lg">
+                  <img class="h-48" src="./assets/hero-leaf1.png" alt="">
+                </figure>
+
+                <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
+                <p class="mb-3 text-[#1F2937] text-xs">A fast-growing tropical tree that produces delicious, juicy
+                  mangoes during summer. Its dense green</p>
+
+                <div class="flex justify-between items-center mb-3">
+                  <h4 class="bg-[#DCFCE7] px-3 py-1 rounded-full font-semibold text-[#15803D] text-sm">Fruit Tree</h4>
+                  <p class="font-semibold text-[#1F2937] text-sm"><i
+                      class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
+                </div>
+                <button class="rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
+              </article>
+
+              <article class="bg-white p-4 rounded-lg">
+                <figure class="bg-[#EDEDED] mb-3 rounded-lg">
+                  <img class="h-48" src="./assets/hero-leaf1.png" alt="">
+                </figure>
+
+                <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
+                <p class="mb-3 text-[#1F2937] text-xs">A fast-growing tropical tree that produces delicious, juicy
+                  mangoes during summer. Its dense green</p>
+
+                <div class="flex justify-between items-center mb-3">
+                  <h4 class="bg-[#DCFCE7] px-3 py-1 rounded-full font-semibold text-[#15803D] text-sm">Fruit Tree</h4>
+                  <p class="font-semibold text-[#1F2937] text-sm"><i
+                      class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
+                </div>
+                <button class="rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
+              </article>
+
+              <article class="bg-white p-4 rounded-lg">
+                <figure class="bg-[#EDEDED] mb-3 rounded-lg">
+                  <img class="h-48" src="./assets/hero-leaf1.png" alt="">
+                </figure>
+
+                <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
+                <p class="mb-3 text-[#1F2937] text-xs">A fast-growing tropical tree that produces delicious, juicy
+                  mangoes during summer. Its dense green</p>
+
+                <div class="flex justify-between items-center mb-3">
+                  <h4 class="bg-[#DCFCE7] px-3 py-1 rounded-full font-semibold text-[#15803D] text-sm">Fruit Tree</h4>
+                  <p class="font-semibold text-[#1F2937] text-sm"><i
+                      class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span></p>
+                </div>
+                <button class="rounded-full w-full font-medium text-white btn btn-success">Add to Cart</button>
+              </article>
+            </div>
+          </div>
+
+          <!-- Right Pane - Shopping Cart -->
+          <aside class="mt-10">
+            <div class="bg-white p-4 rounded-2xl">
+              <h3 class="mb-4 font-semibold text-xl">Your Cart</h3>
+
+              <div class="space-y-1">
+                <article class="bg-[#F0FDF4] px-3 py-2 rounded-lg">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
+                      <p class="text-[#1F2937]"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span> x 1
+                      </p>
+                    </div>
+                    <span class="text-[#15803D]"><i class="fa-solid fa-square-xmark"></i></span>
+                  </div>
+                </article>
+
+                <article class="bg-[#F0FDF4] px-3 py-2 rounded-lg">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
+                      <p class="text-[#1F2937]"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span> x 1
+                      </p>
+                    </div>
+                    <span class="text-[#15803D]"><i class="fa-solid fa-square-xmark"></i></span>
+                  </div>
+                </article>
+
+                <article class="bg-[#F0FDF4] px-3 py-2 rounded-lg">
+                  <div class="flex justify-between items-center">
+                    <div>
+                      <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">Mango Tree</h3>
+                      <p class="text-[#1F2937]"><i class="fa-solid fa-bangladeshi-taka-sign"></i><span>500</span> x 1
+                      </p>
+                    </div>
+                    <span class="text-[#15803D]"><i class="fa-solid fa-square-xmark"></i></span>
+                  </div>
+                </article>
+              </div>
+
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
 
     <footer>
     </footer>
