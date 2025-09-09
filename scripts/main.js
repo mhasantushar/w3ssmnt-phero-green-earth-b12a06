@@ -10,7 +10,7 @@ let cartItems = [];
 
 //SECTION - common functions
 const unselectAllCategories = () => {
-  const categs = document.querySelectorAll(".categ");
+  const categs = document.querySelectorAll(".hook-categ");
   // console.log (categs);
   categs.forEach((elem) => {
     elem.classList.remove("selected-categ");
@@ -38,19 +38,27 @@ const showMainSpinner = (isVisible) => {
   else mainSpinner.classList.add("hidden");
 };
 
+const dropThisCartItem = (itemId) => {
+  const restItems = cartItems.filter((item) => item.id !== itemId);
+
+  cartItems = restItems;
+  eraseCartDisplay();
+  publishCartInfo();
+};
+
 const publishCartInfo = () => {
   let cartValue = 0;
   cartItems.forEach((item) => {
     plantCartWrapperElem.innerHTML += `
-                  <article class="bg-[#F0FDF4] px-3 py-2 rounded-lg">
+                  <article id="${item.id}" class="bg-[#F0FDF4] px-3 py-2 rounded-lg">
                     <div class="flex justify-between items-center">
                       <div>
-                        <h3 class="mb-2 font-semibold text-[#1F2937] text-sm">${item.name}</h3>
+                        <h3 class="hook-cart-item mb-2 font-semibold text-sm link link-success">${item.name}</h3>
                         <p class="text-[#1F2937]"><i class="fa-solid fa-bangladeshi-taka-sign">
                           </i><span>${item.rate}</span> x <span>${item.qnty}</span>
                         </p>
                       </div>
-                      <span class="text-[#15803D] cursor-pointer hook-cart-drop"><i class="fa-solid fa-square-xmark"></i></span>
+                      <span class="cursor-pointer"><i class="hook-cart-drop fa-solid fa-square-xmark"></i></span>
                     </div>
                   </article>
     `;
@@ -90,6 +98,7 @@ const processCartAddRequest = (atcButton) => {
   // console.log(cartItems);
   eraseCartDisplay();
   publishCartInfo();
+  alert(newCartItem.name + " has been added to the cart!");
 };
 //!SECTION common functions
 
@@ -106,7 +115,6 @@ const fetchPlantCategories = () => {
 
 const listPlantCategories = (categCollection) => {
   // console.log (arrCategs);
-  // const categListWrapperElem = document.getElementById("lov-categ-wrapper");
   categCollection.forEach((elem) => {
     categListWrapperElem.innerHTML += `
       <li id="${elem.id}" 
@@ -142,12 +150,11 @@ const fetchPlantsDataByCateg = (categId) => {
 
 const populatePlantCards = (plantCollection) => {
   // console.log (plantCollection);
-  // const plantCardWrapperElem = document.getElementById("tree-card-wrapper");
-
-  const htmlString = plantCollection.map((elem) => `
+  const htmlString = plantCollection.map(
+    (elem) => `
                 <article id="${elem.id}" class="bg-white p-4 rounded-lg">
-                  <figure class="bg-[#EDEDED] mb-3 rounded-lg">
-                    <img class="hook-plant-img rounded-lg h-60 w-full cursor-pointer" src="${elem.image}" alt="${elem.name}">
+                  <figure class="bg-[#EDEDED] mb-3 rounded-lg h-64 overflow-hidden">
+                    <img class="hook-plant-img rounded-lg w-full h-full object-cover cursor-pointer" src="${elem.image}" alt="${elem.name}">
                   </figure>
 
                   <h3 class="hook-plant-name mb-2 font-semibold text-[#1F2937] cursor-pointer">${elem.name}</h3>
@@ -180,8 +187,8 @@ const fetchPlantDataById = (plantId) => {
 const populatePlantModal = (plantObj) => {
   plantModalWrapperElem.innerHTML = `
                 <article id="${plantObj.id}" class="bg-white p-4 rounded-lg">
-                  <figure class="bg-[#EDEDED] mb-3 rounded-lg">
-                    <img class="hook-plant-img rounded-lg h-80 w-full cursor-pointer" src="${plantObj.image}" alt="${plantObj.name}">
+                  <figure class="bg-[#EDEDED] mb-3 rounded-lg h-80 w-full overflow-hidden">
+                    <img class="hook-plant-img rounded-lg w-full h-full object-cover cursor-pointer" src="${plantObj.image}" alt="${plantObj.name}">
                   </figure>
 
                   <h3 class="hook-plant-name mb-2 font-semibold text-[#1F2937] cursor-pointer">${plantObj.name}</h3>
@@ -224,18 +231,20 @@ plantCardWrapperElem.addEventListener("click", (e) => {
   if (e.target.classList.contains("hook-plant-img"))
     fetchPlantDataById(e.target.parentNode.parentNode.id); //click on plant's image
   if (e.target.classList.contains("hook-plant-tocart"))
-    processCartAddRequest(e.target); //click on plant's image
+    processCartAddRequest(e.target); // click on add to cart button on plant's card
 });
 
 plantModalDialogPopup.addEventListener("click", (e) => {
   // console.log(e.target);
   if (e.target.classList.contains("hook-plant-tocart"))
-    processCartAddRequest(e.target);
+    processCartAddRequest(e.target); // click on add to cart button on plant's modal
 });
 
 plantCartWrapperElem.addEventListener("click", (e) => {
-  // console.log(e.target);
+  console.log(e.target.parentNode.parentNode.parentNode.id);
   if (e.target.classList.contains("hook-cart-drop"))
-    console.log ("hopefully the last piece remains");
+    dropThisCartItem(e.target.parentNode.parentNode.parentNode.id); // click on cross beside cart item
+  if (e.target.classList.contains("hook-cart-item"))
+    console.log("show item's modal");
 });
 //!SECTION event listeners
