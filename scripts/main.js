@@ -33,7 +33,6 @@ const moveCategSelectionByElem = (categElem) => {
 
 const showMainSpinner = (isVisible) => {
   const mainSpinner = document.getElementById("main-spinner");
-
   if (isVisible) mainSpinner.classList.remove("hidden");
   else mainSpinner.classList.add("hidden");
 };
