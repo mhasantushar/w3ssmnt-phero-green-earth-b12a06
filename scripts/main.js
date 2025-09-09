@@ -40,7 +40,6 @@ const showMainSpinner = (isVisible) => {
 
 const dropThisCartItem = (itemId) => {
   const restItems = cartItems.filter((item) => item.id !== itemId);
-
   cartItems = restItems;
   eraseCartDisplay();
   publishCartInfo();
@@ -241,10 +240,10 @@ plantModalDialogPopup.addEventListener("click", (e) => {
 });
 
 plantCartWrapperElem.addEventListener("click", (e) => {
-  console.log(e.target.parentNode.parentNode.parentNode.id);
+  // console.log(e.target.parentNode.parentNode.parentNode.id);
   if (e.target.classList.contains("hook-cart-drop"))
     dropThisCartItem(e.target.parentNode.parentNode.parentNode.id); // click on cross beside cart item
   if (e.target.classList.contains("hook-cart-item"))
-    console.log("show item's modal");
+    fetchPlantDataById(e.target.parentNode.parentNode.parentNode.id)
 });
 //!SECTION event listeners
